@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_colecao"
+            android:icon="@drawable/ic_colecao"
+            android:title="Coleções"/>
+        <item
+            android:id="@+id/nav_editora"
+            android:icon="@drawable/ic_editora"
+            android:title="Editoras"/>
+        <item
+            android:id="@+id/nav_serie"
+            android:icon="@drawable/ic_serie"
+            android:title="Séries" />
+    </group>
+</menu>

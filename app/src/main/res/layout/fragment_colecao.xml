@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <SearchView
+            android:id="@+id/sch_colecao"
+            android:layout_height="80dp"
+            android:queryHint="Pesquisar coleção..."
+            android:layout_width="match_parent"
+            android:iconifiedByDefault="false"
+            />
+
+        <ListView
+            android:id="@+id/lst_colecao"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
