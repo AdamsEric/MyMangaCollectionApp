@@ -10,6 +10,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.mymangacollection.views.colecao.ColecaoFragment;
+import com.example.mymangacollection.views.editora.EditoraFragment;
+import com.example.mymangacollection.views.serie.SerieFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

@@ -1,4 +1,4 @@
-package com.example.mymangacollection;
+package com.example.mymangacollection.views.serie;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,12 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class EditoraFragment extends Fragment {
+import com.example.mymangacollection.R;
+
+public class SerieFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_editora, container, false);
-        getActivity().setTitle("Editoras");
+        View rootView = inflater.inflate(R.layout.fragment_serie, container, false);
+        getActivity().setTitle("Séries");
         return rootView;
     }
 }
