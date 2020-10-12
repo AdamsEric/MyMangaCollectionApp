@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.colecao.CadastrarColecaoActivity"
-            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".views.serie.CadastrarSerieActivity"></activity>
+        <activity android:name=".views.editora.CadastrarEditoraActivity" />
+        <activity
+            android:name=".views.colecao.CadastrarColecaoActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

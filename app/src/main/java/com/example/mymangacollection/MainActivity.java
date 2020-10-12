@@ -9,14 +9,42 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.mymangacollection.models.ClassificacaoIndicativa;
 import com.example.mymangacollection.views.colecao.ColecaoFragment;
 import com.example.mymangacollection.views.editora.EditoraFragment;
 import com.example.mymangacollection.views.serie.SerieFragment;
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONArray;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
+    private RequestQueue requestQueue;
+    private Gson gson = new Gson();
+
+    Spinner spnAddEditora;
+    Spinner spnAddPeriodicidade;
+    Spinner spnAddSerie;
+    Spinner spnAddGenero;
+    Spinner spnAddClassificacaoIndicativa;
+    Spinner spnAddDemografia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ColecaoFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_colecao);
         }
+
+        this.carregarValoresPadroes();
     }
 
     @Override
@@ -66,5 +96,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
         }
+    }
+
+    public void carregarValoresPadroes () {
+        spnAddEditora = findViewById(R.id.spnAddEditora);
+        spnAddPeriodicidade = findViewById(R.id.spnAddPeriodicidade);
+        spnAddSerie = findViewById(R.id.spnAddSerie);
+        spnAddGenero = findViewById(R.id.spnAddGenero);
+
+        spnAddDemografia = findViewById(R.id.spnAddDemografia);
+
+        this.requestQueue = Volley.newRequestQueue(getApplicationContext());
+    }
+
+    public void carregarClassificacoes () {
+        String URL = R.string.url_api + "classificacao_indicativa";
+
+        StringRequest request = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Type classificacaoType = new TypeToken<ArrayList<ClassificacaoIndicativa>>() {
+                }.getType();
+
+                ArrayList<ClassificacaoIndicativa> classificacoes = gson.fromJson(response, classificacaoType);
+                ArrayAdapter<ClassificacaoIndicativa> spinnerAdapter = new ArrayAdapter<ClassificacaoIndicativa>(MainActivity.this,
+                        android.R.layout.simple_spinner_dropdown_item, classificacoes);
+                spnAddClassificacaoIndicativa = (Spinner) findViewById(R.id.spnAddClassificacaoIndicativa);
+                System.out.println(spnAddClassificacaoIndicativa);
+               // spnAddClassificacaoIndicativa.setAdapter(spinnerAdapter);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+       this.requestQueue.add(request);
     }
 }

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class ColecaoFragment extends Fragment {
     FloatingActionButton btnAddColecao;
-    Intent cadastrarDentista;
+    Intent cadastrarColecao;
 
     @Nullable
     @Override
@@ -35,14 +35,14 @@ public class ColecaoFragment extends Fragment {
 
     private void registrarComponentes(View view) {
         btnAddColecao = view.findViewById(R.id.btnAddColecao);
-        cadastrarDentista = new Intent(getActivity(), CadastrarColecaoActivity.class);
+        cadastrarColecao = new Intent(getActivity(), CadastrarColecaoActivity.class);
     }
 
     private void registrarEventos() {
         this.btnAddColecao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(cadastrarDentista);
+                startActivity(cadastrarColecao);
             }
         });
     }

@@ -73,7 +73,6 @@
             android:layout_marginBottom="16dp"
             android:textSize="24dp" />
 
-        <!--
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -270,8 +269,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-        -->
 
         <LinearLayout
             android:layout_width="match_parent"

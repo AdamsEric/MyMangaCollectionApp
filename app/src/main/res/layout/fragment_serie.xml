@@ -2,13 +2,62 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/light">
 
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:paddingHorizontal="8dp">
+
+            <!--
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/colecoes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+            -->
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Minhas séries"
-        android:textSize="30dp"
-        android:layout_centerInParent="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        >
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAddSerie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/ic_add"
+            android:contentDescription="Adicionar série"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:focusable="true"
+            android:clickable="true"
+            android:elevation="8dp"
+            android:theme="@style/Widget.AppCompat.ImageButton"
+            app:fabCustomSize="60dp"
+            app:maxImageSize="36dp"
+            app:pressedTranslationZ="12dp"
+            app:rippleColor="@color/light"
+            />
+
+    </RelativeLayout>
 
 </RelativeLayout>

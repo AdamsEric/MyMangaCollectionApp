@@ -19,7 +19,7 @@
             />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipe"
+            android:id="@+id/swipeColecao"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:src="@drawable/ic_add"
-            android:contentDescription="Adicionar"
+            android:contentDescription="Adicionar coleção"
             android:backgroundTint="@color/colorPrimaryDark"
             android:focusable="true"
             android:clickable="true"
