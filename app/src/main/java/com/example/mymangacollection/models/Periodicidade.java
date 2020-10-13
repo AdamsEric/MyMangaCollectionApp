@@ -8,11 +8,6 @@ public class Periodicidade {
     public Periodicidade() {
     }
 
-    @Override
-    public String toString() {
-        return descricao;
-    }
-
     public String getId() {
         return id;
     }
@@ -35,5 +30,10 @@ public class Periodicidade {
 
     public void setQuantidadeDias(Integer quantidadeDias) {
         this.quantidadeDias = quantidadeDias;
+    }
+
+    @Override
+    public String toString() {
+        return descricao;
     }
 }

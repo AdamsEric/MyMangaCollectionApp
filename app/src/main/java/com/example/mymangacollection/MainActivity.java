@@ -2,11 +2,13 @@ package com.example.mymangacollection;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -74,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
+
             case R.id.nav_colecao:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ColecaoFragment()).commit();
                 break;
@@ -83,6 +86,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_serie:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SerieFragment()).commit();
                 break;
+            case R.id.sair:
+                new AlertDialog.Builder(this)
+                    .setTitle("Sair")
+                    .setMessage("Deseja realmente sair do app?")
+                    .setPositiveButton("Sim", new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+
+                    })
+                    .setNegativeButton("Não", null)
+                    .show();
         }
 
         drawer.closeDrawer(GravityCompat.START);
@@ -94,7 +111,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer((GravityCompat.START));
         } else {
-            super.onBackPressed();
+            new AlertDialog.Builder(this)
+                    .setTitle("Sair")
+                    .setMessage("Deseja realmente sair do app?")
+                    .setPositiveButton("Sim", new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+
+                    })
+                    .setNegativeButton("Não", null)
+                    .show();
         }
     }
 

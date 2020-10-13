@@ -1,8 +1,10 @@
 package com.example.mymangacollection.views.serie;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,6 +41,15 @@ public class CadastrarSerieActivity extends AppCompatActivity {
 
         this.registrarComponentes();
         this.registrarEventos();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void registrarComponentes() {

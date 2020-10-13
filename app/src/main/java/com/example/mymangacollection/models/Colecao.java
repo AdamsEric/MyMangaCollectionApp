@@ -165,4 +165,9 @@ public class Colecao {
     public void setStPublicacaoOriginalEmAndamento(boolean stPublicacaoOriginalEmAndamento) {
         this.stPublicacaoOriginalEmAndamento = stPublicacaoOriginalEmAndamento;
     }
+
+    @Override
+    public String toString() {
+        return titulo;
+    }
 }

@@ -31,33 +31,25 @@
 
     </LinearLayout>
 
-    <RelativeLayout
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddEditora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_add"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="16dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="16dp"
-        >
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnAddEditora"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:src="@drawable/ic_add"
-            android:contentDescription="Adicionar editora"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:focusable="true"
-            android:clickable="true"
-            android:elevation="8dp"
-            android:theme="@style/Widget.AppCompat.ImageButton"
-            app:fabCustomSize="60dp"
-            app:maxImageSize="36dp"
-            app:pressedTranslationZ="12dp"
-            app:rippleColor="@color/light"
-            />
-
-    </RelativeLayout>
+        android:layout_marginRight="16dp"
+        android:contentDescription="Adicionar editora"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:focusable="true"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:theme="@style/Widget.AppCompat.ImageButton"
+        app:fabCustomSize="60dp"
+        app:maxImageSize="36dp"
+        app:pressedTranslationZ="12dp"
+        app:rippleColor="@color/light"
+        />
 
 </RelativeLayout>

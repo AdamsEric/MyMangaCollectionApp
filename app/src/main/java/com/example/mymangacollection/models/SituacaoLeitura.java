@@ -40,4 +40,9 @@ public class SituacaoLeitura {
     public void setStConcluido(boolean stConcluido) {
         this.stConcluido = stConcluido;
     }
+
+    @Override
+    public String toString() {
+        return descricao;
+    }
 }

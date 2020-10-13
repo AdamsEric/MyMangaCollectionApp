@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-    <group android:checkableBehavior="single">
+    <group android:id="@+id/menu_nav"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_colecao"
             android:icon="@drawable/ic_colecao"
@@ -16,5 +18,12 @@
             android:id="@+id/nav_serie"
             android:icon="@drawable/ic_serie"
             android:title="Séries" />
+    </group>
+    <group android:id="@+id/menu_options">
+        <item
+            android:id="@+id/sair"
+            android:icon="@drawable/ic_close"
+            android:iconTint="@android:color/holo_red_light"
+            android:title="Sair"></item>
     </group>
 </menu>

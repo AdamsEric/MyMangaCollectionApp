@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/light"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.colecao.CadastrarColecaoActivity"
@@ -22,11 +23,12 @@
 
         <EditText
             android:id="@+id/edtAddColecaoTitulo"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryDark"
             android:layout_marginBottom="16dp"
-            android:textSize="24dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -37,11 +39,12 @@
 
         <EditText
             android:id="@+id/edtAddColecaoTituloOriginal"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryDark"
             android:layout_marginBottom="16dp"
-            android:textSize="24dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -52,11 +55,12 @@
 
         <EditText
             android:id="@+id/edtAddColecaoTituloAlternativo"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryDark"
             android:layout_marginBottom="16dp"
-            android:textSize="24dp"/>
+            android:textSize="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -67,11 +71,12 @@
 
         <EditText
             android:id="@+id/edtAddColecaoAutor"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryDark"
             android:layout_marginBottom="16dp"
-            android:textSize="24dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -82,11 +87,12 @@
 
         <EditText
             android:id="@+id/edtAddColecaoRoteirista"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryDark"
             android:layout_marginBottom="16dp"
-            android:textSize="24dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -97,11 +103,12 @@
 
         <EditText
             android:id="@+id/edtAddColecaoIlustrador"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryDark"
             android:layout_marginBottom="16dp"
-            android:textSize="24dp" />
+            android:textSize="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -125,11 +132,12 @@
 
                 <Spinner
                     android:id="@+id/spnAddEditora"
+                    android:spinnerMode="dialog"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_weight="1"
                     android:layout_marginVertical="8dp"
-                    android:textSize="24dp" />
+                    android:textSize="20dp" />
 
             </LinearLayout>
 
@@ -149,10 +157,11 @@
 
                 <Spinner
                     android:id="@+id/spnAddPeriodicidade"
+                    android:spinnerMode="dialog"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginVertical="8dp"
-                    android:textSize="24dp" />
+                    android:textSize="20dp" />
 
             </LinearLayout>
 
@@ -180,11 +189,12 @@
 
                 <Spinner
                     android:id="@+id/spnAddSerie"
+                    android:spinnerMode="dialog"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_weight="1"
                     android:layout_marginVertical="8dp"
-                    android:textSize="24dp" />
+                    android:textSize="20dp" />
 
             </LinearLayout>
 
@@ -205,10 +215,11 @@
 
                 <Spinner
                     android:id="@+id/spnAddGenero"
+                    android:spinnerMode="dialog"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginVertical="8dp"
-                    android:textSize="24dp" />
+                    android:textSize="20dp" />
 
             </LinearLayout>
 
@@ -236,6 +247,7 @@
 
                 <Spinner
                     android:id="@+id/spnAddClassificacaoIndicativa"
+                    android:spinnerMode="dialog"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_weight="1"
@@ -261,10 +273,11 @@
 
                 <Spinner
                     android:id="@+id/spnAddDemografia"
+                    android:spinnerMode="dialog"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginVertical="8dp"
-                    android:textSize="24dp" />
+                    android:textSize="20dp" />
 
             </LinearLayout>
 
@@ -279,6 +292,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:backgroundTint="@color/colorPrimaryDark"
+                android:textSize="18dp"
                 android:textColor="@color/light"
                 android:text="Gravar"/>
         </LinearLayout>

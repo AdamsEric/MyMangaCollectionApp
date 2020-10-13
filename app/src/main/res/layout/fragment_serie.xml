@@ -1,63 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/light">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swpSerieList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" >
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipe"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvSerieList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginHorizontal="8dp"
-            android:paddingHorizontal="8dp">
-
-            <!--
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/colecoes"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
-            -->
-
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        >
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnAddSerie"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:src="@drawable/ic_add"
-            android:contentDescription="Adicionar série"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:focusable="true"
-            android:clickable="true"
-            android:elevation="8dp"
-            android:theme="@style/Widget.AppCompat.ImageButton"
-            app:fabCustomSize="60dp"
-            app:maxImageSize="36dp"
-            app:pressedTranslationZ="12dp"
-            app:rippleColor="@color/light"
+            android:scrollbars="vertical"
+            android:paddingTop="4dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/list_item"
             />
 
-    </RelativeLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddSerie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:contentDescription="Adicionar série"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:focusable="true"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:theme="@style/Widget.AppCompat.ImageButton"
+        app:fabCustomSize="60dp"
+        app:maxImageSize="36dp"
+        app:pressedTranslationZ="12dp"
+        app:rippleColor="@android:color/darker_gray"
+        />
 
 </RelativeLayout>

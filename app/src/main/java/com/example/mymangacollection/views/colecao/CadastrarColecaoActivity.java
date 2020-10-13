@@ -1,5 +1,6 @@
 package com.example.mymangacollection.views.colecao;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
@@ -10,11 +11,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.mymangacollection.R;
-import com.example.mymangacollection.http.HttpHelper;
 import com.example.mymangacollection.models.ClassificacaoIndicativa;
 import com.example.mymangacollection.models.Colecao;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -65,6 +66,15 @@ public class CadastrarColecaoActivity extends AppCompatActivity {
 
         this.registrarComponentes();
         this.registrarEventos();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void registrarComponentes() {
