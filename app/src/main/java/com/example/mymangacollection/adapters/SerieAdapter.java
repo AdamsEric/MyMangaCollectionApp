@@ -1,23 +1,31 @@
 package com.example.mymangacollection.adapters;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mymangacollection.R;
+import com.example.mymangacollection.helpers.ActivityRequestCodeEnum;
 import com.example.mymangacollection.models.Serie;
+import com.example.mymangacollection.views.serie.FormSerieActivity;
 
 import java.util.ArrayList;
 
 public class SerieAdapter extends RecyclerView.Adapter<SerieAdapter.SerieViewHolder> {
     private ArrayList<Serie> series;
+    private Fragment fragment;
 
-    public SerieAdapter(ArrayList<Serie> series) {
+    public SerieAdapter(ArrayList<Serie> series, Fragment fragment) {
         this.series = series;
+        this.fragment = fragment;
     }
 
     @NonNull
@@ -50,6 +58,19 @@ public class SerieAdapter extends RecyclerView.Adapter<SerieAdapter.SerieViewHol
         public SerieViewHolder(@NonNull View itemView) {
             super(itemView);
             txtSerieNome = itemView.findViewById(R.id.txtSerieNome);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (series.size() > 0) {
+                        Serie serie = series.get(getLayoutPosition());
+
+                        Intent it = new Intent(fragment.getContext(), FormSerieActivity.class);
+                        it.putExtra("SERIE", serie);
+                        fragment.startActivityForResult(it, ActivityRequestCodeEnum.SERIE.getValue());
+                    }
+                }
+            });
         }
     }
 }

@@ -5,11 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -33,9 +34,13 @@ import java.util.ArrayList;
 public class SerieFragment extends Fragment {
     private RecyclerView rcvSerieList;
     private FloatingActionButton btnAddSerie;
-    SwipeRefreshLayout swpSerieList;
+    private SwipeRefreshLayout swpSerieList;
+    private LinearLayout lytSerieEmptyList;
+    private LinearLayout lytSerieError;
+    private LinearLayout lytSerieLoading;
+    private Button btnSerieErrorRefresh;
 
-    private Intent cadastrarSerie;
+    private Intent formularioSerie;
     private RequestQueue requestQueue;
     private Gson gson = new Gson();
 
@@ -58,8 +63,12 @@ public class SerieFragment extends Fragment {
     private void registrarComponentes(View view) {
         rcvSerieList = (RecyclerView) view.findViewById(R.id.rcvSerieList);
         swpSerieList = (SwipeRefreshLayout) view.findViewById(R.id.swpSerieList);
+        lytSerieEmptyList = (LinearLayout) view.findViewById(R.id.lytSerieEmptyList);
+        lytSerieLoading = (LinearLayout) view.findViewById(R.id.lytSerieLoading);
+        lytSerieError = (LinearLayout) view.findViewById(R.id.lytSerieError);
         btnAddSerie = (FloatingActionButton) view.findViewById(R.id.btnAddSerie);
-        cadastrarSerie = new Intent(getActivity(), CadastrarSerieActivity.class);
+        btnSerieErrorRefresh = (Button) view.findViewById(R.id.btnSerieErrorRefresh);
+        formularioSerie = new Intent(getActivity(), FormSerieActivity.class);
         requestQueue = Volley.newRequestQueue(getContext());
     }
 
@@ -67,7 +76,7 @@ public class SerieFragment extends Fragment {
         this.btnAddSerie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivityForResult(cadastrarSerie, ActivityRequestCodeEnum.SERIE.getValue());
+                startActivityForResult(formularioSerie, ActivityRequestCodeEnum.SERIE.getValue());
             }
         });
         this.swpSerieList.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -76,11 +85,18 @@ public class SerieFragment extends Fragment {
                 carregarSeries();
             }
         });
+        this.btnSerieErrorRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                carregarSeries();
+            }
+        });
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        System.out.println("Entrou");
 
         if (requestCode == ActivityRequestCodeEnum.SERIE.getValue()) {
             this.carregarSeries();
@@ -89,24 +105,51 @@ public class SerieFragment extends Fragment {
 
     private void carregarSeries() {
         String URL = getResources().getString(R.string.url_api) + "serie";
+        final Fragment fragment = this;
+
+        if (!swpSerieList.isRefreshing()) {
+            lytSerieEmptyList.setVisibility(View.GONE);
+            lytSerieLoading.setVisibility(View.VISIBLE);
+            rcvSerieList.setVisibility(View.GONE);
+            lytSerieError.setVisibility(View.GONE);
+        }
 
         StringRequest request = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Type objectType = new TypeToken<ArrayList<Serie>>() {}.getType();
                 ArrayList<Serie> dados = gson.fromJson(response, objectType);
-                serieAdapter = new SerieAdapter(dados);
+                serieAdapter = new SerieAdapter(dados, fragment);
                 serieAdapter.notifyDataSetChanged();
                 rcvSerieList.setAdapter(serieAdapter);
 
                 if (swpSerieList.isRefreshing()) {
                     swpSerieList.setRefreshing(false);
                 }
+
+                if (dados.size() == 0) {
+                    lytSerieEmptyList.setVisibility(View.VISIBLE);
+                    lytSerieLoading.setVisibility(View.GONE);
+                    rcvSerieList.setVisibility(View.GONE);
+                    lytSerieError.setVisibility(View.GONE);
+                } else {
+                    lytSerieEmptyList.setVisibility(View.GONE);
+                    lytSerieLoading.setVisibility(View.GONE);
+                    rcvSerieList.setVisibility(View.VISIBLE);
+                    lytSerieError.setVisibility(View.GONE);
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
+            if (swpSerieList.isRefreshing()) {
+                swpSerieList.setRefreshing(false);
+            }
+
+            lytSerieEmptyList.setVisibility(View.GONE);
+            lytSerieLoading.setVisibility(View.GONE);
+            rcvSerieList.setVisibility(View.GONE);
+            lytSerieError.setVisibility(View.VISIBLE);
             }
         });
 

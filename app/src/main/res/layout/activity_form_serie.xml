@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/light"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.serie.FormSerieActivity"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:text="Nome"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtFormSerieNome"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginBottom="16dp"
+            android:textSize="20dp" />
+
+        <LinearLayout
+            android:id="@+id/lytSerieNovo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnFormSerieInserir"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="18dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:textColor="@color/light"
+                android:text="Inserir"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lytSerieEdicao"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnFormSerieDeletar"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="60dp"
+                android:textSize="18dp"
+                android:backgroundTint="@android:color/holo_red_light"
+                android:textColor="@color/light"
+                android:text="Excluir"/>
+
+            <Button
+                android:id="@+id/btnFormSerieAtualizar"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="60dp"
+                android:textSize="18dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:textColor="@color/light"
+                android:text="Atualizar"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,8 +1,8 @@
 package com.example.mymangacollection.models;
 
-import android.widget.Button;
+import java.io.Serializable;
 
-public class Colecao {
+public class Colecao implements Serializable {
     private String id;
     private String titulo;
     private String tituloOriginal;
