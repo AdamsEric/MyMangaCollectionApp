@@ -1,4 +1,4 @@
-package com.example.mymangacollection.views.serie;
+package com.example.mymangacollection.views.editora;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -20,19 +20,19 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.mymangacollection.R;
-import com.example.mymangacollection.models.Serie;
+import com.example.mymangacollection.models.Editora;
 import com.google.gson.Gson;
 
 import java.io.UnsupportedEncodingException;
 
-public class FormSerieActivity extends AppCompatActivity {
-    private Serie serie;
-    private EditText edtFormSerieNome;
-    private Button btnFormSerieInserir;
-    private Button btnFormSerieAtualizar;
-    private Button btnFormSerieDeletar;
-    private LinearLayout lytSerieNovo;
-    private LinearLayout lytSerieEdicao;
+public class EditoraFormActivity extends AppCompatActivity {
+    private Editora editora;
+    private EditText edtFormEditoraNome;
+    private Button btnFormEditoraInserir;
+    private Button btnFormEditoraAtualizar;
+    private Button btnFormEditoraDeletar;
+    private LinearLayout lytEditoraNovo;
+    private LinearLayout lytEditoraEdicao;
 
     private RequestQueue requestQueue;
     private String apiURL;
@@ -41,12 +41,11 @@ public class FormSerieActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setTitle("Cadastrar série");
-        setContentView(R.layout.activity_form_serie);
+        this.setTitle("Nova editora");
+        setContentView(R.layout.activity_editora_form);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        serie = new Serie();
-        apiURL = getResources().getString(R.string.url_api) + "serie";
+        apiURL = getResources().getString(R.string.url_api) + "editora";
 
         this.registrarComponentes();
         this.registrarEventos();
@@ -63,33 +62,33 @@ public class FormSerieActivity extends AppCompatActivity {
     }
 
     private void registrarComponentes() {
-        edtFormSerieNome = (EditText) findViewById(R.id.edtFormSerieNome);
-        btnFormSerieInserir = (Button) findViewById(R.id.btnFormSerieInserir);
-        btnFormSerieAtualizar = (Button) findViewById(R.id.btnFormSerieAtualizar);
-        btnFormSerieDeletar = (Button) findViewById(R.id.btnFormSerieDeletar);
-        lytSerieNovo = (LinearLayout) findViewById(R.id.lytSerieNovo);
-        lytSerieEdicao = (LinearLayout) findViewById(R.id.lytSerieEdicao);
+        edtFormEditoraNome = (EditText) findViewById(R.id.edtFormEditoraNome);
+        btnFormEditoraInserir = (Button) findViewById(R.id.btnFormEditoraInserir);
+        btnFormEditoraAtualizar = (Button) findViewById(R.id.btnFormEditoraAtualizar);
+        btnFormEditoraDeletar = (Button) findViewById(R.id.btnFormEditoraDeletar);
+        lytEditoraNovo = (LinearLayout) findViewById(R.id.lytEditoraNovo);
+        lytEditoraEdicao = (LinearLayout) findViewById(R.id.lytEditoraEdicao);
 
         this.requestQueue = Volley.newRequestQueue(getApplicationContext());
     }
 
     private void registrarEventos() {
-        btnFormSerieInserir.setOnClickListener(new View.OnClickListener() {
+        btnFormEditoraInserir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            serie.setNome(edtFormSerieNome.getText().toString());
+                editora.setNome(edtFormEditoraNome.getText().toString());
 
-            boolean cadastroValido = validarCadastro();
-            if (cadastroValido) {
-                gravarDados(Request.Method.POST);
-            }
+                boolean cadastroValido = validarCadastro();
+                if (cadastroValido) {
+                    gravarDados(Request.Method.POST);
+                }
             }
         });
 
-        btnFormSerieAtualizar.setOnClickListener(new View.OnClickListener() {
+        btnFormEditoraAtualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                serie.setNome(edtFormSerieNome.getText().toString());
+                editora.setNome(edtFormEditoraNome.getText().toString());
 
                 boolean cadastroValido = validarCadastro();
                 if (cadastroValido) {
@@ -98,18 +97,17 @@ public class FormSerieActivity extends AppCompatActivity {
             }
         });
 
-        btnFormSerieDeletar.setOnClickListener(new View.OnClickListener() {
+        btnFormEditoraDeletar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (serie.getId() != null) {
-                    new AlertDialog.Builder(FormSerieActivity.this)
+                if (editora.getId() != null) {
+                    new AlertDialog.Builder(EditoraFormActivity.this)
                             .setTitle("Sair")
-                            .setMessage("Confirma a exclusão da série " + serie.getNome() + " ?")
+                            .setMessage("Confirma a exclusão da editora " + editora.getNome() + " ?")
                             .setPositiveButton("Sim", new DialogInterface.OnClickListener()
                             {
                                 @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    excluirRegistro();
+                                public void onClick(DialogInterface dialog, int which) { excluirRegistro();
                                 }
 
                             })
@@ -121,16 +119,15 @@ public class FormSerieActivity extends AppCompatActivity {
     }
 
     private boolean validarCadastro () {
-        if (serie.getNome() == null) {
+        if (editora.getNome() == null) {
             Toast.makeText(this, "É necessário informar um nome", Toast.LENGTH_SHORT).show();
             return false;
         }
-
         return true;
     }
 
     private void gravarDados (Integer requestMethod) {
-        final String serieJson = gson.toJson(serie);
+        final String dadosJson = gson.toJson(editora);
 
         StringRequest request = new StringRequest(requestMethod, apiURL, new Response.Listener<String>() {
             @Override
@@ -151,7 +148,7 @@ public class FormSerieActivity extends AppCompatActivity {
             @Override
             public byte[] getBody() {
                 try {
-                    return serieJson == null ? null : serieJson.getBytes("utf-8");
+                    return dadosJson == null ? null : dadosJson.getBytes("utf-8");
                 } catch (UnsupportedEncodingException uee) {
                     return null;
                 }
@@ -161,7 +158,7 @@ public class FormSerieActivity extends AppCompatActivity {
     }
 
     private void excluirRegistro () {
-        final String url = apiURL + "/" + serie.getId();
+        final String url = apiURL + "/" + editora.getId();
 
         StringRequest request = new StringRequest(Request.Method.DELETE, url, new Response.Listener<String>() {
             @Override
@@ -171,9 +168,9 @@ public class FormSerieActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (error.networkResponse.statusCode == 404) {
-                    Toast.makeText(FormSerieActivity.this,"O registro não foi encontrado.\nPor favor, atualize a lista.", Toast.LENGTH_LONG).show();
-                }
+            if (error.networkResponse.statusCode == 404) {
+                Toast.makeText(EditoraFormActivity.this,"O registro não foi encontrado.\nPor favor, atualize a lista.", Toast.LENGTH_LONG).show();
+            }
             }
         });
         requestQueue.add(request);
@@ -181,17 +178,18 @@ public class FormSerieActivity extends AppCompatActivity {
 
     private void verificarParametroEdicao() {
         Bundle bundle = getIntent().getExtras();
-        serie = new Serie();
+        editora = new Editora();
 
-        if (bundle != null && bundle.containsKey("SERIE")) {
-            this.setTitle("Editar série");
-            serie = (Serie) bundle.getSerializable("SERIE");
-            edtFormSerieNome.setText(serie.getNome());
-            lytSerieNovo.setVisibility(View.GONE);
-            lytSerieEdicao.setVisibility(View.VISIBLE);
+        if (bundle != null && bundle.containsKey("EDITORA")) {
+            editora = (Editora) bundle.getSerializable("EDITORA");
+            edtFormEditoraNome.setText(editora.getNome());
+            lytEditoraNovo.setVisibility(View.GONE);
+            lytEditoraEdicao.setVisibility(View.VISIBLE);
+
+            this.setTitle("Editora: " + editora.getNome());
         } else {
-            lytSerieNovo.setVisibility(View.VISIBLE);
-            lytSerieEdicao.setVisibility(View.GONE);
+            lytEditoraNovo.setVisibility(View.VISIBLE);
+            lytEditoraEdicao.setVisibility(View.GONE);
         }
     }
 }

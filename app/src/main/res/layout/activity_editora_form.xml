@@ -5,7 +5,7 @@
     android:background="@color/light"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.serie.FormSerieActivity"
+    tools:context=".views.editora.EditoraFormActivity"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -19,10 +19,12 @@
             android:layout_height="wrap_content"
             android:textSize="16dp"
             android:text="Nome"
+            android:labelFor="@id/edtFormEditoraNome"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edtFormSerieNome"
+            android:id="@+id/edtFormEditoraNome"
+            android:theme="@style/EditTextTheme"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,12 +33,12 @@
             android:textSize="20dp" />
 
         <LinearLayout
-            android:id="@+id/lytSerieNovo"
+            android:id="@+id/lytEditoraNovo"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btnFormSerieInserir"
+                android:id="@+id/btnFormEditoraInserir"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:textSize="18dp"
@@ -47,33 +49,35 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/lytSerieEdicao"
+            android:id="@+id/lytEditoraEdicao"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:weightSum="2">
 
             <Button
-                android:id="@+id/btnFormSerieDeletar"
+                android:id="@+id/btnFormEditoraDeletar"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="60dp"
                 android:textSize="18dp"
                 android:backgroundTint="@android:color/holo_red_light"
                 android:textColor="@color/light"
-                android:text="Excluir"/>
+                android:layout_marginRight="4dp"
+                android:text="Excluir"
+                android:layout_marginEnd="4dp" />
 
             <Button
-                android:id="@+id/btnFormSerieAtualizar"
+                android:id="@+id/btnFormEditoraAtualizar"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="60dp"
                 android:textSize="18dp"
                 android:backgroundTint="@color/colorPrimaryDark"
                 android:textColor="@color/light"
-                android:text="Atualizar"/>
+                android:layout_marginLeft="4dp"
+                android:text="Atualizar"
+                android:layout_marginStart="4dp" />
         </LinearLayout>
-
-
 
     </LinearLayout>
 

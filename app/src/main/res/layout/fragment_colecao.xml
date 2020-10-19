@@ -3,36 +3,92 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/light">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swpColecaoList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" >
 
-        <SearchView
-            android:id="@+id/sch_colecao"
-            android:layout_height="80dp"
-            android:queryHint="Pesquisar coleção..."
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvColecaoList"
             android:layout_width="match_parent"
-            android:iconifiedByDefault="false"
-            />
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:paddingTop="4dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/list_item_colecao" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipeColecao"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginHorizontal="8dp"
-            android:paddingHorizontal="8dp">
+    <LinearLayout
+        android:id="@+id/lytColecaoEmptyList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nenhuma coleção cadastrada."
+            android:textSize="20dp" />
+    </LinearLayout>
 
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <LinearLayout
+        android:id="@+id/lytColecaoError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Houve um erro ao carregar a lista."
+            android:textSize="20dp" />
+        <Button
+            android:id="@+id/btnColecaoErrorRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:textSize="16dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:foreground="?attr/selectableItemBackground"
+            android:textColor="@color/light"
+            android:text="Tentar novamente"/>
+    </LinearLayout>
 
-
+    <LinearLayout
+        android:id="@+id/lytColecaoLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:elevation="20dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:padding="16dp"
+            android:orientation="vertical">
+            <ProgressBar
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:indeterminateTint="@color/light"
+                android:layout_gravity="center" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Carregando"
+                android:textColor="@color/light"
+                android:textSize="20dp" />
+        </LinearLayout>
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAddColecao"
+        android:theme="@style/MyFloatingActionButton"
+        android:id="@+id/btnColecaoAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add"
@@ -41,15 +97,14 @@
         android:layout_marginBottom="16dp"
         android:layout_marginRight="16dp"
         android:contentDescription="Adicionar coleção"
-        android:backgroundTint="@color/colorPrimaryDark"
+        app:borderWidth="0dp"
         android:focusable="true"
         android:clickable="true"
         android:elevation="8dp"
-        android:theme="@style/Widget.AppCompat.ImageButton"
         app:fabCustomSize="60dp"
         app:maxImageSize="36dp"
         app:pressedTranslationZ="12dp"
-        app:rippleColor="@color/light"
+        app:rippleColor="@android:color/darker_gray"
         />
 
 </RelativeLayout>

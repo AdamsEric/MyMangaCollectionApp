@@ -5,7 +5,7 @@
     android:background="@color/light"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.colecao.CadastrarColecaoActivity"
+    tools:context=".views.colecao.ColecaoAddActivity"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -22,7 +22,8 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edtAddColecaoTitulo"
+            android:id="@+id/edtFormColecaoTitulo"
+            android:theme="@style/EditTextTheme"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,7 +39,8 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edtAddColecaoTituloOriginal"
+            android:id="@+id/edtFormColecaoTituloOriginal"
+            android:theme="@style/EditTextTheme"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,7 +56,8 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edtAddColecaoTituloAlternativo"
+            android:id="@+id/edtFormColecaoTituloAlternativo"
+            android:theme="@style/EditTextTheme"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -70,7 +73,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edtAddColecaoAutor"
+            android:id="@+id/edtFormColecaoAutor"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -86,7 +89,8 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edtAddColecaoRoteirista"
+            android:id="@+id/edtFormColecaoRoteirista"
+            android:theme="@style/EditTextTheme"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -102,7 +106,8 @@
             android:textStyle="bold"  />
 
         <EditText
-            android:id="@+id/edtAddColecaoIlustrador"
+            android:id="@+id/edtFormColecaoIlustrador"
+            android:theme="@style/EditTextTheme"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -131,7 +136,7 @@
                     android:textStyle="bold" />
 
                 <Spinner
-                    android:id="@+id/spnAddEditora"
+                    android:id="@+id/spnFormEditora"
                     android:spinnerMode="dialog"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -156,7 +161,7 @@
                     android:textStyle="bold" />
 
                 <Spinner
-                    android:id="@+id/spnAddPeriodicidade"
+                    android:id="@+id/spnFormPeriodicidade"
                     android:spinnerMode="dialog"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -188,7 +193,7 @@
                     android:textStyle="bold" />
 
                 <Spinner
-                    android:id="@+id/spnAddSerie"
+                    android:id="@+id/spnFormSerie"
                     android:spinnerMode="dialog"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -214,7 +219,7 @@
                     />
 
                 <Spinner
-                    android:id="@+id/spnAddGenero"
+                    android:id="@+id/spnFormGenero"
                     android:spinnerMode="dialog"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -246,7 +251,7 @@
                     android:textStyle="bold" />
 
                 <Spinner
-                    android:id="@+id/spnAddClassificacaoIndicativa"
+                    android:id="@+id/spnFormClassificacaoIndicativa"
                     android:spinnerMode="dialog"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -272,7 +277,7 @@
                     />
 
                 <Spinner
-                    android:id="@+id/spnAddDemografia"
+                    android:id="@+id/spnFormDemografia"
                     android:spinnerMode="dialog"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -283,19 +288,14 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <Button
+            android:id="@+id/btnFormColecaoInserir"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/btnAddColecaoGravar"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:backgroundTint="@color/colorPrimaryDark"
-                android:textSize="18dp"
-                android:textColor="@color/light"
-                android:text="Gravar"/>
-        </LinearLayout>
+            android:layout_height="60dp"
+            android:textSize="18dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:textColor="@color/light"
+            android:text="Inserir"/>
 
     </LinearLayout>
 

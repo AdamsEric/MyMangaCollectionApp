@@ -14,13 +14,10 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.mymangacollection.models.ClassificacaoIndicativa;
@@ -30,8 +27,6 @@ import com.example.mymangacollection.views.serie.SerieFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONArray;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -128,12 +123,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void carregarValoresPadroes () {
-        spnAddEditora = findViewById(R.id.spnAddEditora);
-        spnAddPeriodicidade = findViewById(R.id.spnAddPeriodicidade);
-        spnAddSerie = findViewById(R.id.spnAddSerie);
-        spnAddGenero = findViewById(R.id.spnAddGenero);
+        spnAddEditora = findViewById(R.id.spnFormEditora);
+        spnAddPeriodicidade = findViewById(R.id.spnFormPeriodicidade);
+        spnAddSerie = findViewById(R.id.spnFormSerie);
+        spnAddGenero = findViewById(R.id.spnFormGenero);
 
-        spnAddDemografia = findViewById(R.id.spnAddDemografia);
+        spnAddDemografia = findViewById(R.id.spnFormDemografia);
 
         this.requestQueue = Volley.newRequestQueue(getApplicationContext());
     }
@@ -150,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 ArrayList<ClassificacaoIndicativa> classificacoes = gson.fromJson(response, classificacaoType);
                 ArrayAdapter<ClassificacaoIndicativa> spinnerAdapter = new ArrayAdapter<ClassificacaoIndicativa>(MainActivity.this,
                         android.R.layout.simple_spinner_dropdown_item, classificacoes);
-                spnAddClassificacaoIndicativa = (Spinner) findViewById(R.id.spnAddClassificacaoIndicativa);
+                spnAddClassificacaoIndicativa = (Spinner) findViewById(R.id.spnFormClassificacaoIndicativa);
                 System.out.println(spnAddClassificacaoIndicativa);
                // spnAddClassificacaoIndicativa.setAdapter(spinnerAdapter);
             }

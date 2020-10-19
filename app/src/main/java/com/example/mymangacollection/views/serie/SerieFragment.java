@@ -33,11 +33,11 @@ import java.util.ArrayList;
 
 public class SerieFragment extends Fragment {
     private RecyclerView rcvSerieList;
-    private FloatingActionButton btnAddSerie;
     private SwipeRefreshLayout swpSerieList;
     private LinearLayout lytSerieEmptyList;
     private LinearLayout lytSerieError;
     private LinearLayout lytSerieLoading;
+    private FloatingActionButton btnSerieAdd;
     private Button btnSerieErrorRefresh;
 
     private Intent formularioSerie;
@@ -54,7 +54,6 @@ public class SerieFragment extends Fragment {
 
         this.registrarComponentes(rootView);
         this.registrarEventos();
-
         this.carregarSeries();
 
         return rootView;
@@ -66,14 +65,14 @@ public class SerieFragment extends Fragment {
         lytSerieEmptyList = (LinearLayout) view.findViewById(R.id.lytSerieEmptyList);
         lytSerieLoading = (LinearLayout) view.findViewById(R.id.lytSerieLoading);
         lytSerieError = (LinearLayout) view.findViewById(R.id.lytSerieError);
-        btnAddSerie = (FloatingActionButton) view.findViewById(R.id.btnAddSerie);
+        btnSerieAdd = (FloatingActionButton) view.findViewById(R.id.btnSerieAdd);
         btnSerieErrorRefresh = (Button) view.findViewById(R.id.btnSerieErrorRefresh);
-        formularioSerie = new Intent(getActivity(), FormSerieActivity.class);
+        formularioSerie = new Intent(getActivity(), SerieFormActivity.class);
         requestQueue = Volley.newRequestQueue(getContext());
     }
 
     private void registrarEventos() {
-        this.btnAddSerie.setOnClickListener(new View.OnClickListener() {
+        this.btnSerieAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivityForResult(formularioSerie, ActivityRequestCodeEnum.SERIE.getValue());
@@ -96,7 +95,6 @@ public class SerieFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("Entrou");
 
         if (requestCode == ActivityRequestCodeEnum.SERIE.getValue()) {
             this.carregarSeries();

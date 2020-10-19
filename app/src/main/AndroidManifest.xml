@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".views.colecao.ColecaoDetalhesActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -21,9 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.colecao.CadastrarColecaoActivity" />
-        <activity android:name=".views.editora.CadastrarEditoraActivity" />
-        <activity android:name=".views.serie.FormSerieActivity" />
+        <activity android:name=".views.colecao.ColecaoAddActivity" />
+        <activity android:name=".views.editora.EditoraFormActivity" />
+        <activity android:name=".views.serie.SerieFormActivity" />
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.example.mymangacollection.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Colecao implements Serializable {
     private String id;
@@ -19,16 +20,11 @@ public class Colecao implements Serializable {
     private Integer quantidadeTotalVolumes;
     private boolean stPublicacaoEmAndamento;
     private boolean stPublicacaoOriginalEmAndamento;
+    private Serie serie;
+    private Editora editora;
+    private ArrayList<Volume> volumes;
 
-    public Colecao() {
-        this.id = null;
-        this.titulo = null;
-        this.tituloOriginal = null;
-        this.tituloAlternativo = null;
-        this.autor = null;
-        this.roteirista = null;
-        this.ilustrador = null;
-    }
+    public Colecao() { }
 
     public String getId() { return id; }
 
@@ -41,6 +37,8 @@ public class Colecao implements Serializable {
     public void setTitulo(String titulo) {
         if (!titulo.isEmpty()) {
             this.titulo = titulo;
+        } else {
+            this.titulo = null;
         }
     }
 
@@ -51,6 +49,8 @@ public class Colecao implements Serializable {
     public void setTituloOriginal(String tituloOriginal) {
         if (!tituloOriginal.isEmpty()) {
             this.tituloOriginal = tituloOriginal;
+        } else {
+            this.tituloOriginal = null;
         }
     }
 
@@ -61,6 +61,8 @@ public class Colecao implements Serializable {
     public void setTituloAlternativo(String tituloAlternativo) {
         if (!tituloAlternativo.isEmpty()) {
             this.tituloAlternativo = tituloAlternativo;
+        } else {
+            this.tituloAlternativo = null;
         }
     }
 
@@ -71,6 +73,8 @@ public class Colecao implements Serializable {
     public void setAutor(String autor) {
         if (!autor.isEmpty()) {
             this.autor = autor;
+        } else {
+            this.autor = null;
         }
     }
 
@@ -81,6 +85,8 @@ public class Colecao implements Serializable {
     public void setRoteirista(String roteirista) {
         if (!roteirista.isEmpty()) {
             this.roteirista = roteirista;
+        } else {
+            this.roteirista = null;
         }
     }
 
@@ -91,6 +97,8 @@ public class Colecao implements Serializable {
     public void setIlustrador(String ilustrador) {
         if (!ilustrador.isEmpty()) {
             this.ilustrador = ilustrador;
+        } else {
+            this.ilustrador = null;
         }
     }
 
@@ -122,17 +130,11 @@ public class Colecao implements Serializable {
         return periodicidadeId;
     }
 
-    public void setPeriodicidadeId(String periodicidadeId) {
-        this.periodicidadeId = periodicidadeId;
-    }
+    public void setPeriodicidadeId(String periodicidadeId) { this.periodicidadeId = periodicidadeId; }
 
-    public String getClassificacaoIndicativaId() {
-        return classificacaoIndicativaId;
-    }
+    public String getClassificacaoIndicativaId() { return classificacaoIndicativaId; }
 
-    public void setClassificacaoIndicativaId(String classificacaoIndicativaId) {
-        this.classificacaoIndicativaId = classificacaoIndicativaId;
-    }
+    public void setClassificacaoIndicativaId(String classificacaoIndicativaId) { this.classificacaoIndicativaId = classificacaoIndicativaId; }
 
     public String getDemografiaId() {
         return demografiaId;
@@ -146,24 +148,41 @@ public class Colecao implements Serializable {
         return quantidadeTotalVolumes;
     }
 
-    public void setQuantidadeTotalVolumes(Integer quantidadeTotalVolumes) {
-        this.quantidadeTotalVolumes = quantidadeTotalVolumes;
-    }
+    public void setQuantidadeTotalVolumes(Integer quantidadeTotalVolumes) { this.quantidadeTotalVolumes = quantidadeTotalVolumes; }
 
     public boolean isStPublicacaoEmAndamento() {
         return stPublicacaoEmAndamento;
     }
 
-    public void setStPublicacaoEmAndamento(boolean stPublicacaoEmAndamento) {
-        this.stPublicacaoEmAndamento = stPublicacaoEmAndamento;
-    }
+    public void setStPublicacaoEmAndamento(boolean stPublicacaoEmAndamento) { this.stPublicacaoEmAndamento = stPublicacaoEmAndamento; }
 
     public boolean isStPublicacaoOriginalEmAndamento() {
         return stPublicacaoOriginalEmAndamento;
     }
 
-    public void setStPublicacaoOriginalEmAndamento(boolean stPublicacaoOriginalEmAndamento) {
-        this.stPublicacaoOriginalEmAndamento = stPublicacaoOriginalEmAndamento;
+    public void setStPublicacaoOriginalEmAndamento(boolean stPublicacaoOriginalEmAndamento) { this.stPublicacaoOriginalEmAndamento = stPublicacaoOriginalEmAndamento; }
+
+    public Serie getSerie() { return serie; }
+
+    public void setSerie(Serie serie) { this.serie = serie; }
+
+    public Editora getEditora() { return editora; }
+
+    public void setEditora(Editora editora) { this.editora = editora; }
+
+    public ArrayList<Volume> getVolumes() {
+        return volumes;
+    }
+
+    public void setVolumes(ArrayList<Volume> volumes) {
+        this.volumes = volumes;
+    }
+
+    public int getQuantidadeVolumesAdquiridos() {
+        if (volumes != null) {
+            return volumes.size();
+        }
+        return 0;
     }
 
     @Override

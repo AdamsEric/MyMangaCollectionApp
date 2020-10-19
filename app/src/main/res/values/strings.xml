@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">MyMangaCollection</string>
     <string name="url_api">http://192.168.0.15:3088/api/</string>
+    <!-- <string name="url_api">https://mymangacollectionapi.herokuapp.com/api/</string> -->
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

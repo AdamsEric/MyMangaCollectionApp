@@ -19,7 +19,7 @@
             android:scrollbars="vertical"
             android:paddingTop="4dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/list_item"
+            tools:listitem="@layout/list_item_serie"
             />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
@@ -96,7 +96,8 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAddSerie"
+        android:theme="@style/MyFloatingActionButton"
+        android:id="@+id/btnSerieAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add"
@@ -105,11 +106,10 @@
         android:layout_marginBottom="16dp"
         android:layout_marginRight="16dp"
         android:contentDescription="Adicionar série"
-        android:backgroundTint="@color/colorPrimaryDark"
+        app:borderWidth="0dp"
         android:focusable="true"
         android:clickable="true"
         android:elevation="8dp"
-        android:theme="@style/Widget.AppCompat.ImageButton"
         app:fabCustomSize="60dp"
         app:maxImageSize="36dp"
         app:pressedTranslationZ="12dp"
