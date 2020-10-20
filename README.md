@@ -6,6 +6,8 @@ Para tal, foi desenvolvida uma API e este APP para Android, desenvolvido com o A
 
 A API foi disponibilizada no repositório [AdamsEric/MyMangaCollectionAPI](https://github.com/AdamsEric/MyMangaCollectionAPI)
 
+---
+
 > ### Tecnologias utilizadas
 
 Para o desenvolvimento desta API, foram utilizados:
