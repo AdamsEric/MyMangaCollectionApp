@@ -43,6 +43,7 @@ public class VolumeAdapter extends RecyclerView.Adapter<VolumeAdapter.VolumeView
         if (volumes != null && volumes.size() > 0) {
             Volume volume = volumes.get(position);
             holder.txtVolumeDescricao.setText(volume.toString());
+            holder.txtVolumeSituacaoLeitura.setText(volume.getSituacaoLeitura().getDescricao());
         }
     }
 
@@ -53,10 +54,12 @@ public class VolumeAdapter extends RecyclerView.Adapter<VolumeAdapter.VolumeView
 
     public class VolumeViewHolder extends RecyclerView.ViewHolder {
         public TextView txtVolumeDescricao;
+        public TextView txtVolumeSituacaoLeitura;
 
         public VolumeViewHolder(@NonNull View itemView) {
             super(itemView);
             txtVolumeDescricao = itemView.findViewById(R.id.txtVolumeDescricao);
+            txtVolumeSituacaoLeitura = itemView.findViewById(R.id.txtVolumeSituacaoLeitura);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
