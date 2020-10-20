@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.colecao.ColecaoDetalhesActivity"></activity>
+        <activity android:name=".views.colecao.ColecaoVolumeFormActivity"></activity>
+        <activity android:name=".views.colecao.ColecaoDetalhesActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

@@ -1,6 +1,8 @@
 package com.example.mymangacollection.models;
 
-public class SituacaoLeitura {
+import java.io.Serializable;
+
+public class SituacaoLeitura implements Serializable {
     private String id;
     private String ordem;
     private String descricao;

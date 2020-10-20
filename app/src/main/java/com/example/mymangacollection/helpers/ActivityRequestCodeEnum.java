@@ -1,7 +1,7 @@
 package com.example.mymangacollection.helpers;
 
 public enum ActivityRequestCodeEnum {
-    COLECAO(1), EDITORA(2), SERIE(3);
+    COLECAO(1), EDITORA(2), SERIE(3), VOLUME(4);
 
     private int value;
 

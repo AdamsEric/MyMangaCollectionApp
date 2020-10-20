@@ -24,9 +24,9 @@ public class ColecaoPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
-                return new ColecaoDadosFragment(colecao);
-            case 1:
                 return new ColecaoVolumesFragment(colecao);
+            case 1:
+                return new ColecaoDadosFragment(colecao);
             default:
                 return null;
         }

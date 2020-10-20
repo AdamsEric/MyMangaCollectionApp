@@ -7,14 +7,16 @@ public class Volume implements Serializable {
     private String colecaoId;
     private Integer numero;
     private String descricao;
-    private float precoCapa;
+    private String observacoes;
+    private Float precoCapa;
     private Integer quantidadePaginas;
     private Integer capituloInicial;
     private Integer capituloFinal;
-    private SituacaoLeitura situacaoLeitura;
+    private String situacaoLeituraId;
     private Integer ultimoCapituloLido;
     private Integer quantidadeExemplares;
-    private Integer observacoes;
+
+    private SituacaoLeitura situacaoLeitura;
 
     public Volume() {
     }
@@ -51,11 +53,11 @@ public class Volume implements Serializable {
         this.descricao = descricao;
     }
 
-    public float getPrecoCapa() {
+    public Float getPrecoCapa() {
         return precoCapa;
     }
 
-    public void setPrecoCapa(float precoCapa) {
+    public void setPrecoCapa(Float precoCapa) {
         this.precoCapa = precoCapa;
     }
 
@@ -107,12 +109,20 @@ public class Volume implements Serializable {
         this.quantidadeExemplares = quantidadeExemplares;
     }
 
-    public Integer getObservacoes() {
+    public String getObservacoes() {
         return observacoes;
     }
 
-    public void setObservacoes(Integer observacoes) {
+    public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
+    }
+
+    public String getSituacaoLeituraId() {
+        return situacaoLeituraId;
+    }
+
+    public void setSituacaoLeituraId(String situacaoLeituraId) {
+        this.situacaoLeituraId = situacaoLeituraId;
     }
 
     @Override

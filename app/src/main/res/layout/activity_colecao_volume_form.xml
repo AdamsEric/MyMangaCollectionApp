@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/light"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.colecao.ColecaoVolumeFormActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="Número"
+                    android:labelFor="@id/edtFormVolumeNumero"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtFormVolumeNumero"
+                    android:theme="@style/EditTextTheme"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginBottom="16dp"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="Preço de capa"
+                    android:labelFor="@id/edtFormVolumePreco"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtFormVolumePreco"
+                    android:theme="@style/EditTextTheme"
+                    android:inputType="numberDecimal"
+                    android:digits="0123456789,"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginBottom="16dp"
+                    android:textSize="20dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="Qtde páginas"
+                    android:labelFor="@id/edtFormVolumeQtdePaginas"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtFormVolumeQtdePaginas"
+                    android:theme="@style/EditTextTheme"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginBottom="16dp"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="Qtde exemplares"
+                    android:labelFor="@id/edtFormVolumeQtdeExemplares"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtFormVolumeQtdeExemplares"
+                    android:theme="@style/EditTextTheme"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginBottom="16dp"
+                    android:text="1"
+                    android:textSize="20dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="Status da leitura"
+                    android:labelFor="@id/spnFormSituacaoLeitura"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spnFormSituacaoLeitura"
+                    android:spinnerMode="dialog"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginVertical="8dp"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="Último capítulo lido"
+                    android:labelFor="@id/edtFormVolumeUltimoCapLido"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtFormVolumeUltimoCapLido"
+                    android:theme="@style/EditTextTheme"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginBottom="16dp"
+                    android:textSize="20dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="Capítulo inicial"
+                    android:labelFor="@id/edtFormVolumeCapInicial"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtFormVolumeCapInicial"
+                    android:theme="@style/EditTextTheme"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginBottom="16dp"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:text="Capítulo final"
+                    android:labelFor="@id/edtFormVolumeCapFinal"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtFormVolumeCapFinal"
+                    android:theme="@style/EditTextTheme"
+                    android:inputType="numberDecimal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginBottom="16dp"
+                    android:textSize="20dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:text="Descrição"
+            android:labelFor="@id/edtFormVolumeDescricao"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtFormVolumeDescricao"
+            android:theme="@style/EditTextTheme"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginBottom="16dp"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:text="Observações"
+            android:labelFor="@id/edtFormVolumeObservacoes"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtFormVolumeObservacoes"
+            android:theme="@style/EditTextTheme"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginBottom="16dp"
+            android:textSize="20dp" />
+
+        <LinearLayout
+            android:id="@+id/lytVolumeNovo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnFormVolumeInserir"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="18dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:textColor="@color/light"
+                android:text="Inserir"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lytVolumeEdicao"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnFormVolumeDeletar"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="60dp"
+                android:textSize="18dp"
+                android:backgroundTint="@android:color/holo_red_light"
+                android:textColor="@color/light"
+                android:layout_marginRight="4dp"
+                android:text="Excluir" />
+
+            <Button
+                android:id="@+id/btnFormVolumeAtualizar"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="60dp"
+                android:textSize="18dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:textColor="@color/light"
+                android:layout_marginLeft="4dp"
+                android:text="Atualizar"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

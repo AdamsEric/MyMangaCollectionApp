@@ -181,11 +181,12 @@ public class SerieFormActivity extends AppCompatActivity {
         serie = new Serie();
 
         if (bundle != null && bundle.containsKey("SERIE")) {
-            this.setTitle("Editar série");
             serie = (Serie) bundle.getSerializable("SERIE");
             edtFormSerieNome.setText(serie.getNome());
             lytSerieNovo.setVisibility(View.GONE);
             lytSerieEdicao.setVisibility(View.VISIBLE);
+
+            this.setTitle("Série: " + serie.getNome());
         } else {
             lytSerieNovo.setVisibility(View.VISIBLE);
             lytSerieEdicao.setVisibility(View.GONE);

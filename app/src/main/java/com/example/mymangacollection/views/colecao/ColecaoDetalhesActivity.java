@@ -68,17 +68,11 @@ public class ColecaoDetalhesActivity extends AppCompatActivity {
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 switch(position) {
                     case 0: {
-                        tab.setText("Dados");
+                        tab.setText("Volumes");
                         break;
                     }
                     case 1: {
-                        tab.setText("Volumes");
-                        if (colecao != null && colecao.getQuantidadeVolumesAdquiridos() > 0) {
-                            BadgeDrawable badgeDrawable = tab.getOrCreateBadge();
-                            badgeDrawable.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimaryDark));
-                            badgeDrawable.setVisible(true);
-                            badgeDrawable.setNumber(colecao.getQuantidadeVolumesAdquiridos());
-                        }
+                        tab.setText("Dados");
                         break;
                     }
                 }
