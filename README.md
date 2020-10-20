@@ -4,7 +4,7 @@ Este projeto foi desenvolvido como forma de avaliação da disciplina _Introduç
 
 Para tal, foi desenvolvida uma API e este APP para Android, desenvolvido com o Android Studio.
 
-A API foi disponibilizada no repositório [AdamsEric/MyMangaCollectionAPI](https://github.com/AdamsEric/MyMangaCollectionAPI)
+O código da API foi disponibilizada no repositório [AdamsEric/MyMangaCollectionAPI](https://github.com/AdamsEric/MyMangaCollectionAPI)
 
 ---
 
