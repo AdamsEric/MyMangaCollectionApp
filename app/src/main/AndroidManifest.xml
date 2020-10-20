@@ -12,18 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.colecao.ColecaoVolumeFormActivity"></activity>
-        <activity android:name=".views.colecao.ColecaoDetalhesActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreenActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".views.colecao.ColecaoAddActivity" />
+        <activity android:name=".views.colecao.ColecaoDetalhesActivity" />
+        <activity android:name=".views.colecao.ColecaoVolumeFormActivity" />
         <activity android:name=".views.editora.EditoraFormActivity" />
         <activity android:name=".views.serie.SerieFormActivity" />
     </application>
